@@ -1,0 +1,9 @@
+name: 'hugo-deploy'
+author: 'reuixiy'
+description: 'Deploy your Hugo site to GitHub Pages, via GitHub Actions, with Arch Linux.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'arrow-up-circle'  
+  color: 'yellow'
