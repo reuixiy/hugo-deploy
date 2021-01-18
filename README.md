@@ -75,4 +75,4 @@ jobs:
 
 ## Acknowledgements
 
-https://github.com/Xuanwo/xuanwo.github.io/blob/blog/.github/actions/hugo/entrypoint.sh
+<https://github.com/Xuanwo/blog/blob/35504e96a1/.github/actions/hugo/entrypoint.sh>
