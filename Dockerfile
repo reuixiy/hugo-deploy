@@ -1,7 +1,4 @@
-# Hot fix for issue #6
-FROM archlinux/archlinux:base-20210203.0.15035
-
-# FROM archlinux
+FROM archlinux
 
 RUN pacman -Syu --noconfirm hugo git openssh
 
