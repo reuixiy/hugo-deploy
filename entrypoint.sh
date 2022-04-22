@@ -9,6 +9,7 @@
 #
 #   GITHUB_ACTOR        GitHub username
 #   GITHUB_REPOSITORY   GitHub repository (source code)
+#   GITHUB_WORKSPACE    GitHub workspace
 #
 #   TZ                  Timezone
 
@@ -16,6 +17,7 @@ set -e
 
 REMOTE_REPO="git@github.com:${DEPLOY_REPO}.git"
 REMOTE_BRANCH="${DEPLOY_BRANCH}"
+GITHUB_WORKSPACE="${GITHUB_WORKSPACE:-$(pwd)}"
 
 git config --global user.name "${GITHUB_ACTOR}"
 git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
@@ -29,6 +31,9 @@ mkdir /root/.ssh
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts && \
 echo "${DEPLOY_KEY}" > /root/.ssh/id_rsa && \
 chmod 400 /root/.ssh/id_rsa
+
+git config --global --add safe.directory ${GITHUB_WORKSPACE}
+cd ${GITHUB_WORKSPACE}
 
 git clone --recurse-submodules "git@github.com:${GITHUB_REPOSITORY}.git" site && \
 cd site
