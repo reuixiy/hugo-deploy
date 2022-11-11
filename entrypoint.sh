@@ -27,7 +27,7 @@ git config --global core.quotePath false
 
 ln -s /usr/share/zoneinfo/${TZ} /etc/localtime
 
-mkdir /root/.ssh
+mkdir --parents /root/.ssh
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts && \
 echo "${DEPLOY_KEY}" > /root/.ssh/id_rsa && \
 chmod 400 /root/.ssh/id_rsa
